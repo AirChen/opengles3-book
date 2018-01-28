@@ -26,4 +26,11 @@ We would like to thank the following people for their contributions to the sourc
 * Eduardo Pelegri-Llopart and Darryl Gough for contributing the Blackberry Native SDK port for the OpenGL ES 2.0 Programming Guide (we have not yet ported the ES 3.0 book to a Blackberry platform)
 
 
+## 学习资料
+
+新手入门
+
+http://www.olinone.com/?p=308
+
+
 
