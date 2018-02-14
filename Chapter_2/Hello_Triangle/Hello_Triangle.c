@@ -100,6 +100,7 @@ GLuint LoadShader ( GLenum type, const char *shaderSrc )
 int Init ( ESContext *esContext )
 {
    UserData *userData = esContext->userData;
+   //顶点着色器
    char vShaderStr[] =
       "#version 300 es                          \n"
       "layout(location = 0) in vec4 vPosition;  \n"
@@ -107,14 +108,14 @@ int Init ( ESContext *esContext )
       "{                                        \n"
       "   gl_Position = vPosition;              \n"
       "}                                        \n";
-
+   //片段着色器
    char fShaderStr[] =
       "#version 300 es                              \n"
       "precision mediump float;                     \n"
       "out vec4 fragColor;                          \n"
       "void main()                                  \n"
       "{                                            \n"
-      "   fragColor = vec4 ( 1.0, 0.0, 0.0, 1.0 );  \n"
+      "   fragColor = vec4 ( 0.0, 0.0, 1.0, 1.0 );  \n"
       "}                                            \n";
 
    GLuint vertexShader;
@@ -126,7 +127,7 @@ int Init ( ESContext *esContext )
    vertexShader = LoadShader ( GL_VERTEX_SHADER, vShaderStr );
    fragmentShader = LoadShader ( GL_FRAGMENT_SHADER, fShaderStr );
 
-   // Create the program object
+   // Create the program object 创建程序对象
    programObject = glCreateProgram ( );
 
    if ( programObject == 0 )
@@ -166,6 +167,7 @@ int Init ( ESContext *esContext )
    // Store the program object
    userData->programObject = programObject;
 
+   //白色背景
    glClearColor ( 1.0f, 1.0f, 1.0f, 0.0f );
    return TRUE;
 }
@@ -208,6 +210,7 @@ int esMain ( ESContext *esContext )
 {
    esContext->userData = malloc ( sizeof ( UserData ) );
 
+   //苹果无效
    esCreateWindow ( esContext, "Hello Triangle", 320, 240, ES_WINDOW_RGB );
 
    if ( !Init ( esContext ) )
@@ -215,6 +218,7 @@ int esMain ( ESContext *esContext )
       return GL_FALSE;
    }
 
+   //回调
    esRegisterShutdownFunc ( esContext, Shutdown );
    esRegisterDrawFunc ( esContext, Draw );
 

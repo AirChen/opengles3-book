@@ -46,8 +46,8 @@
 #ifdef __APPLE__
 #include <OpenGLES/ES3/gl.h>
 #else
-#include <GLES3/gl3.h>
-#include <EGL/egl.h>
+#include <GLES3/gl3.h>      //opengl 3
+#include <EGL/egl.h>       //EGL
 #include <EGL/eglext.h>
 #endif
 #ifdef __cplusplus
